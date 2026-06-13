@@ -1,2 +1,4 @@
 # IBGE-BCB_ETL
-ETL para extração dos dados das APIs de IBGE e BCB, para a criação de uma arquitetura medalhão, utilizando databricks, git e Power BI
+Extração de Dados das APIs de Localidade do IBGE e PIX do BCB.
+Para a criação de um ETL, com arquitetura medalhão.
+Utilizando Databricks e Power BI
