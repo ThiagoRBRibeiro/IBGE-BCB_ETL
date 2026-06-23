@@ -318,6 +318,22 @@ table pix_statistics
 		formatString: 0.00%;0.00%
 		lineageTag: 00000014-0000-0000-0000-000000000020
 
+	measure Total_Pagadores = SUM('pix_statistics'[QT_PES_PagadorPF]) + SUM('pix_statistics'[QT_PES_PagadorPJ])
+		formatString: #,##0
+		lineageTag: 00000015-0000-0000-0000-000000000021
+
+	measure Total_Recebedores = SUM('pix_statistics'[QT_PES_RecebedorPF]) + SUM('pix_statistics'[QT_PES_RecebedorPJ])
+		formatString: #,##0
+		lineageTag: 00000016-0000-0000-0000-000000000022
+
+	measure Total_PagadorPF = SUM('pix_statistics'[VL_PagadorPF])
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000017-0000-0000-0000-000000000023
+
+	measure Total_PagadorPJ = SUM('pix_statistics'[VL_PagadorPJ])
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000018-0000-0000-0000-000000000024
+
 	measure Crescimento_MoM = IFERROR(DIVIDE(([Total_Valor_Transacoes] - CALCULATE([Total_Valor_Transacoes], DATEADD(LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46[Date], -1, MONTH))), CALCULATE([Total_Valor_Transacoes], DATEADD(LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46[Date], -1, MONTH))), 0)
 		formatString: 0.00%;-0.00%
 		lineageTag: 00000015-0000-0000-0000-000000000021
