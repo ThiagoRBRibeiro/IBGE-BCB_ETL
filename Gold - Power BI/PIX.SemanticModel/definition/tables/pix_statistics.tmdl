@@ -1,0 +1,251 @@
+table pix_statistics
+	lineageTag: 650a944d-987d-470f-b7cd-e948d339e1bf
+
+	column AnoMes
+		dataType: int64
+		formatString: 0
+		lineageTag: 98e54096-ed79-476c-94cb-5b53123e08a7
+		summarizeBy: sum
+		sourceColumn: AnoMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 65894220-f3ab-4fa3-9841-68fd9567f52f
+		summarizeBy: sum
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: b549e04c-080f-4f56-9e60-3fd6be5821af
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Municipio_Ibge
+		dataType: string
+		lineageTag: 2788423a-37bb-4cd7-8e4c-54ee06181ca6
+		summarizeBy: none
+		sourceColumn: Municipio_Ibge
+
+		annotation SummarizationSetBy = Automatic
+
+	column Municipio
+		dataType: string
+		lineageTag: 4d205469-cd24-4b0c-a057-28b9edeaeebb
+		summarizeBy: none
+		sourceColumn: Municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado_Ibge
+		dataType: string
+		lineageTag: c54f52ce-3d91-4fd6-b000-c0a117a8fc9e
+		summarizeBy: none
+		sourceColumn: Estado_Ibge
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado
+		dataType: string
+		lineageTag: 2f6080c2-dfa3-4502-bf21-7ab1eb670f9b
+		summarizeBy: none
+		sourceColumn: Estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sigla_Regiao
+		dataType: string
+		lineageTag: bab7ff3c-d1cd-45cc-bf7a-9b36f341e396
+		summarizeBy: none
+		sourceColumn: Sigla_Regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column Regiao
+		dataType: string
+		lineageTag: fd18ddcd-d0b7-4e0b-b6ab-c526d8fc40cf
+		summarizeBy: none
+		sourceColumn: Regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column VL_PagadorPF
+		dataType: double
+		lineageTag: ffae00f6-3d1e-4d2e-943f-3f76d4740d59
+		summarizeBy: sum
+		sourceColumn: VL_PagadorPF
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QT_PagadorPF
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e48d4c2-75a6-4984-8492-f23f64424616
+		summarizeBy: sum
+		sourceColumn: QT_PagadorPF
+
+		annotation SummarizationSetBy = Automatic
+
+	column VL_PagadorPJ
+		dataType: double
+		lineageTag: 508d1432-493b-4e96-93d4-c09d17209eb5
+		summarizeBy: sum
+		sourceColumn: VL_PagadorPJ
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QT_PagadorPJ
+		dataType: int64
+		formatString: 0
+		lineageTag: 211e9a4f-8baf-449f-ad65-c167ad64e651
+		summarizeBy: sum
+		sourceColumn: QT_PagadorPJ
+
+		annotation SummarizationSetBy = Automatic
+
+	column VL_RecebedorPF
+		dataType: double
+		lineageTag: 0697c48a-0224-4af5-b806-c6d51f50493a
+		summarizeBy: sum
+		sourceColumn: VL_RecebedorPF
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QT_RecebedorPF
+		dataType: int64
+		formatString: 0
+		lineageTag: f9550f96-a404-41b9-8460-32f569ccdc4a
+		summarizeBy: sum
+		sourceColumn: QT_RecebedorPF
+
+		annotation SummarizationSetBy = Automatic
+
+	column VL_RecebedorPJ
+		dataType: double
+		lineageTag: b8264524-d331-435c-a255-48e3a2cdf427
+		summarizeBy: sum
+		sourceColumn: VL_RecebedorPJ
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QT_RecebedorPJ
+		dataType: int64
+		formatString: 0
+		lineageTag: 9af4ec3e-4f54-464d-8e76-fd6e5fee3043
+		summarizeBy: sum
+		sourceColumn: QT_RecebedorPJ
+
+		annotation SummarizationSetBy = Automatic
+
+	column QT_PES_PagadorPF
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c88f9a3-274e-473c-8e66-9b69efeeb06f
+		summarizeBy: sum
+		sourceColumn: QT_PES_PagadorPF
+
+		annotation SummarizationSetBy = Automatic
+
+	column QT_PES_PagadorPJ
+		dataType: int64
+		formatString: 0
+		lineageTag: a0244090-5155-4f2f-add1-b7687c73ce6d
+		summarizeBy: sum
+		sourceColumn: QT_PES_PagadorPJ
+
+		annotation SummarizationSetBy = Automatic
+
+	column QT_PES_RecebedorPF
+		dataType: int64
+		formatString: 0
+		lineageTag: af1393bf-031b-4620-ab0c-5d38b9404373
+		summarizeBy: sum
+		sourceColumn: QT_PES_RecebedorPF
+
+		annotation SummarizationSetBy = Automatic
+
+	column QT_PES_RecebedorPJ
+		dataType: int64
+		formatString: 0
+		lineageTag: 9dd1dc00-ad21-4865-8cfe-3124990d4dfb
+		summarizeBy: sum
+		sourceColumn: QT_PES_RecebedorPJ
+
+		annotation SummarizationSetBy = Automatic
+
+	column ingestion_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: de2b492b-c2bc-4bb9-abff-f720bf603735
+		summarizeBy: none
+		sourceColumn: ingestion_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 63ab7921-9368-4b17-9df9-1659fd9101e4
+			defaultHierarchy: LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		lineageTag: ac414325-b19b-4ac4-b025-d40f01a704f4
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 437038eb-f2e6-40a8-893a-ace55528cbc3
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: e22b415a-cd65-4885-adc7-fc1d6b04c3c4
+			defaultHierarchy: LocalDateTable_b5fcbce0-94ac-41ab-855f-f81e9a9aa802.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bac0a606-6e71-4aa6-b360-b6acb82e5826
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: 343de8b6-a37e-49f7-90be-a19d3d4dc6fc
+			defaultHierarchy: LocalDateTable_e1c96101-f526-4769-b043-0204b48e207b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pix_statistics = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-e29c95b7-28db.cloud.databricks.com", "/sql/1.0/warehouses/bc677bac0df24d7a", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    project_apis_Database = Fonte{[Name="project_apis",Kind="Database"]}[Data],
+				    silver_Schema = project_apis_Database{[Name="silver",Kind="Schema"]}[Data],
+				    pix_statistics_Table = silver_Schema{[Name="pix_statistics",Kind="Table"]}[Data]
+				in
+				    pix_statistics_Table
+

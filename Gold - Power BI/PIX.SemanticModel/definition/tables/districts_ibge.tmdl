@@ -1,0 +1,137 @@
+table districts_ibge
+	lineageTag: a307f6b0-171c-407b-a279-033b226881fd
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 02f26344-1c93-4e39-8a13-3cb6a0b96fa9
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome
+		dataType: string
+		lineageTag: 4215d025-a860-4b3f-8c7d-c1112696724b
+		summarizeBy: none
+		sourceColumn: nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_municipio
+		dataType: string
+		lineageTag: 694e29e6-d060-4805-b351-e9f4eee30490
+		summarizeBy: none
+		sourceColumn: nome_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_microrregiao
+		dataType: string
+		lineageTag: 6f12b07e-40f4-444a-9dbc-5e4a27d6151c
+		summarizeBy: none
+		sourceColumn: nome_microrregiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_mesorregiao
+		dataType: string
+		lineageTag: 9d375ddf-94c3-4170-97e7-d1e15b314520
+		summarizeBy: none
+		sourceColumn: nome_mesorregiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_UF
+		dataType: string
+		lineageTag: 6170ec86-e0ee-4350-9e38-0789059b858a
+		summarizeBy: none
+		sourceColumn: nome_UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigla_UF
+		dataType: string
+		lineageTag: 8d0416a9-dcd6-4aad-9c3d-ade217d1f850
+		summarizeBy: none
+		sourceColumn: sigla_UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_regiao
+		dataType: string
+		lineageTag: 866da5ea-0045-4896-966b-65920bdc9cac
+		summarizeBy: none
+		sourceColumn: nome_regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigla_regiao
+		dataType: string
+		lineageTag: 353b114c-0374-4152-8af7-e47b519d2bbc
+		summarizeBy: none
+		sourceColumn: sigla_regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column ingestion_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fb3a6cbf-3821-4604-9b94-54f8c2791274
+		summarizeBy: none
+		sourceColumn: ingestion_timestamp
+
+		variation Variation
+			isDefault
+			relationship: efe4ef74-3005-4de3-82ef-ecc8d9bcc7a9
+			defaultHierarchy: LocalDateTable_2888bb43-3a29-4569-b7d4-75cdd78f40eb.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		lineageTag: 56f50949-c12b-42b7-aa58-1382265f566c
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a68a6b8e-a4fa-4076-9327-234c30da5db2
+		summarizeBy: none
+		sourceColumn: created_at
+
+		variation Variation
+			isDefault
+			relationship: 19686bf2-8477-4fcd-892d-a38b4ce4797c
+			defaultHierarchy: LocalDateTable_b8527ff2-1583-4634-981d-dd39f4c9f13b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 843b69ca-2e92-4c91-89ff-e4c82042211f
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		variation Variation
+			isDefault
+			relationship: a059f506-4038-4387-826c-3059aa546752
+			defaultHierarchy: LocalDateTable_2bbc69f3-f713-475c-a376-eb13b8da0d54.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition districts_ibge = m
+		mode: import
+		source =
+				let
+				    Fonte = DatabricksMultiCloud.Catalogs("dbc-e29c95b7-28db.cloud.databricks.com", "/sql/1.0/warehouses/bc677bac0df24d7a", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation="2.0", Protocol=null]),
+				    project_apis_Database = Fonte{[Name="project_apis",Kind="Database"]}[Data],
+				    silver_Schema = project_apis_Database{[Name="silver",Kind="Schema"]}[Data],
+				    districts_ibge_Table = silver_Schema{[Name="districts_ibge",Kind="Table"]}[Data]
+				in
+				    districts_ibge_Table
+

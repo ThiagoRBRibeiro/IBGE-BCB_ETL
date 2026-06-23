@@ -1,0 +1,26 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["districts_ibge","pix_statistics"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table districts_ibge
+ref table DateTableTemplate_9c340752-2d53-4bae-b7f1-7a2019657c15
+ref table LocalDateTable_2888bb43-3a29-4569-b7d4-75cdd78f40eb
+ref table LocalDateTable_b8527ff2-1583-4634-981d-dd39f4c9f13b
+ref table LocalDateTable_2bbc69f3-f713-475c-a376-eb13b8da0d54
+ref table pix_statistics
+ref table LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46
+ref table LocalDateTable_b5fcbce0-94ac-41ab-855f-f81e9a9aa802
+ref table LocalDateTable_e1c96101-f526-4769-b043-0204b48e207b
+
+ref cultureInfo pt-BR
+

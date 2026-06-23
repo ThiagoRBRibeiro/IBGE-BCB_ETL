@@ -1,0 +1,30 @@
+relationship efe4ef74-3005-4de3-82ef-ecc8d9bcc7a9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: districts_ibge.ingestion_timestamp
+	toColumn: LocalDateTable_2888bb43-3a29-4569-b7d4-75cdd78f40eb.Date
+
+relationship 19686bf2-8477-4fcd-892d-a38b4ce4797c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: districts_ibge.created_at
+	toColumn: LocalDateTable_b8527ff2-1583-4634-981d-dd39f4c9f13b.Date
+
+relationship a059f506-4038-4387-826c-3059aa546752
+	joinOnDateBehavior: datePartOnly
+	fromColumn: districts_ibge.updated_at
+	toColumn: LocalDateTable_2bbc69f3-f713-475c-a376-eb13b8da0d54.Date
+
+relationship 63ab7921-9368-4b17-9df9-1659fd9101e4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: pix_statistics.ingestion_timestamp
+	toColumn: LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46.Date
+
+relationship e22b415a-cd65-4885-adc7-fc1d6b04c3c4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: pix_statistics.created_at
+	toColumn: LocalDateTable_b5fcbce0-94ac-41ab-855f-f81e9a9aa802.Date
+
+relationship 343de8b6-a37e-49f7-90be-a19d3d4dc6fc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: pix_statistics.updated_at
+	toColumn: LocalDateTable_e1c96101-f526-4769-b043-0204b48e207b.Date
+
