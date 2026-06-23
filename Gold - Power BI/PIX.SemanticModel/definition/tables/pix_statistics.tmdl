@@ -334,7 +334,7 @@ table pix_statistics
 		formatString: #,##0.00;-#,##0.00
 		lineageTag: 00000018-0000-0000-0000-000000000024
 
-	measure Crescimento_MoM = IFERROR(DIVIDE(([Total_Valor_Transacoes] - CALCULATE([Total_Valor_Transacoes], DATEADD(LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46[Date], -1, MONTH))), CALCULATE([Total_Valor_Transacoes], DATEADD(LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46[Date], -1, MONTH))), 0)
+	measure Crescimento_MoM = IFERROR(DIVIDE(([Total_Valor_Transacoes] - CALCULATE([Total_Valor_Transacoes], DATEADD('LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46'[Date], -1, MONTH))), CALCULATE([Total_Valor_Transacoes], DATEADD('LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46'[Date], -1, MONTH))), 0)
 		formatString: 0.00%;-0.00%
 		lineageTag: 00000019-0000-0000-0000-000000000025
 
