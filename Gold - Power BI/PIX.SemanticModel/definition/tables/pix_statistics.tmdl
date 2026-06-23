@@ -318,7 +318,7 @@ table pix_statistics
 		formatString: 0.00%;0.00%
 		lineageTag: 00000014-0000-0000-0000-000000000020
 
-	measure Crescimento_MoM = VAR CurrentMonth = [Total_Valor_Transacoes] VAR PreviousMonth = CALCULATE([Total_Valor_Transacoes], DATEADD('LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46'[Date], -1, MONTH)) RETURN DIVIDE(CurrentMonth - PreviousMonth, PreviousMonth, 0)
+	measure Crescimento_MoM = IFERROR(DIVIDE(([Total_Valor_Transacoes] - CALCULATE([Total_Valor_Transacoes], DATEADD(LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46[Date], -1, MONTH))), CALCULATE([Total_Valor_Transacoes], DATEADD(LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46[Date], -1, MONTH))), 0)
 		formatString: 0.00%;-0.00%
 		lineageTag: 00000015-0000-0000-0000-000000000021
 
