@@ -238,6 +238,92 @@ table pix_statistics
 
 		annotation SummarizationSetBy = Automatic
 
+	measure Total_Valor_Transacoes = SUM('pix_statistics'[VL_PagadorPF]) + SUM('pix_statistics'[VL_PagadorPJ]) + SUM('pix_statistics'[VL_RecebedorPF]) + SUM('pix_statistics'[VL_RecebedorPJ])
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000001-0000-0000-0000-000000000001
+
+	measure Valor_PagadorPF = SUM('pix_statistics'[VL_PagadorPF])
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000002-0000-0000-0000-000000000002
+
+	measure Valor_PagadorPJ = SUM('pix_statistics'[VL_PagadorPJ])
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000003-0000-0000-0000-000000000003
+
+	measure Valor_RecebedorPF = SUM('pix_statistics'[VL_RecebedorPF])
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000004-0000-0000-0000-000000000004
+
+	measure Valor_RecebedorPJ = SUM('pix_statistics'[VL_RecebedorPJ])
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000005-0000-0000-0000-000000000005
+
+	measure Total_Quantidade_Transacoes = SUM('pix_statistics'[QT_PagadorPF]) + SUM('pix_statistics'[QT_PagadorPJ]) + SUM('pix_statistics'[QT_RecebedorPF]) + SUM('pix_statistics'[QT_RecebedorPJ])
+		formatString: #,##0
+		lineageTag: 00000006-0000-0000-0000-000000000006
+
+	measure Qtd_PagadorPF = SUM('pix_statistics'[QT_PagadorPF])
+		formatString: #,##0
+		lineageTag: 00000007-0000-0000-0000-000000000007
+
+	measure Qtd_PagadorPJ = SUM('pix_statistics'[QT_PagadorPJ])
+		formatString: #,##0
+		lineageTag: 00000008-0000-0000-0000-000000000008
+
+	measure Qtd_RecebedorPF = SUM('pix_statistics'[QT_RecebedorPF])
+		formatString: #,##0
+		lineageTag: 00000009-0000-0000-0000-000000000009
+
+	measure Qtd_RecebedorPJ = SUM('pix_statistics'[QT_RecebedorPJ])
+		formatString: #,##0
+		lineageTag: 0000000a-0000-0000-0000-000000000010
+
+	measure Total_Pessoas = SUM('pix_statistics'[QT_PES_PagadorPF]) + SUM('pix_statistics'[QT_PES_PagadorPJ]) + SUM('pix_statistics'[QT_PES_RecebedorPF]) + SUM('pix_statistics'[QT_PES_RecebedorPJ])
+		formatString: #,##0
+		lineageTag: 0000000b-0000-0000-0000-000000000011
+
+	measure Pessoas_PagadorPF = SUM('pix_statistics'[QT_PES_PagadorPF])
+		formatString: #,##0
+		lineageTag: 0000000c-0000-0000-0000-000000000012
+
+	measure Pessoas_PagadorPJ = SUM('pix_statistics'[QT_PES_PagadorPJ])
+		formatString: #,##0
+		lineageTag: 0000000d-0000-0000-0000-000000000013
+
+	measure Pessoas_RecebedorPF = SUM('pix_statistics'[QT_PES_RecebedorPF])
+		formatString: #,##0
+		lineageTag: 0000000e-0000-0000-0000-000000000014
+
+	measure Pessoas_RecebedorPJ = SUM('pix_statistics'[QT_PES_RecebedorPJ])
+		formatString: #,##0
+		lineageTag: 0000000f-0000-0000-0000-000000000015
+
+	measure Valor_Medio_Transacao = DIVIDE([Total_Valor_Transacoes], [Total_Quantidade_Transacoes], 0)
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000010-0000-0000-0000-000000000016
+
+	measure Valor_Medio_PagadorPF = DIVIDE([Valor_PagadorPF], [Qtd_PagadorPF], 0)
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000011-0000-0000-0000-000000000017
+
+	measure Valor_Medio_PagadorPJ = DIVIDE([Valor_PagadorPJ], [Qtd_PagadorPJ], 0)
+		formatString: #,##0.00;-#,##0.00
+		lineageTag: 00000012-0000-0000-0000-000000000018
+
+	measure Percentual_PF = DIVIDE(SUM('pix_statistics'[VL_PagadorPF]) + SUM('pix_statistics'[VL_RecebedorPF]), [Total_Valor_Transacoes], 0)
+		formatString: 0.00%;0.00%
+		lineageTag: 00000013-0000-0000-0000-000000000019
+
+	measure Percentual_PJ = DIVIDE(SUM('pix_statistics'[VL_PagadorPJ]) + SUM('pix_statistics'[VL_RecebedorPJ]), [Total_Valor_Transacoes], 0)
+		formatString: 0.00%;0.00%
+		lineageTag: 00000014-0000-0000-0000-000000000020
+
+	measure Crescimento_MoM = VAR CurrentMonth = [Total_Valor_Transacoes]
+		VAR PreviousMonth = CALCULATE([Total_Valor_Transacoes], DATEADD('LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46'[Date], -1, MONTH))
+		RETURN DIVIDE(CurrentMonth - PreviousMonth, PreviousMonth, 0)
+		formatString: 0.00%;-0.00%
+		lineageTag: 00000015-0000-0000-0000-000000000021
+
 	partition pix_statistics = m
 		mode: import
 		source =
