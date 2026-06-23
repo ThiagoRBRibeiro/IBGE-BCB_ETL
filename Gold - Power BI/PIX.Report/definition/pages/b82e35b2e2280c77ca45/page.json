@@ -4,5 +4,144 @@
   "displayName": "PIX Statistics Dashboard",
   "displayOption": "FitToPage",
   "height": 1080,
-  "width": 1920
+  "width": 1920,
+  "objects": {
+    "visual": [
+      {
+        "name": "4d41c30e-edb8-46cc-8ad9-c1b87e9a9f45",
+        "type": "card",
+        "position": {
+          "x": 20,
+          "y": 20,
+          "width": 280,
+          "height": 150
+        },
+        "properties": {
+          "dataPoint": {
+            "cardKey": {
+              "name": "Total_Valor_Transacoes"
+            }
+          }
+        }
+      },
+      {
+        "name": "5e52d41f-fdc9-47dd-9be0-d2c98b8ba0f56",
+        "type": "card",
+        "position": {
+          "x": 320,
+          "y": 20,
+          "width": 280,
+          "height": 150
+        },
+        "properties": {
+          "dataPoint": {
+            "cardKey": {
+              "name": "Total_Quantidade_Transacoes"
+            }
+          }
+        }
+      },
+      {
+        "name": "6f63e50g-ged0-48ee-0cf1-e3d09c9cb1g67",
+        "type": "card",
+        "position": {
+          "x": 620,
+          "y": 20,
+          "width": 280,
+          "height": 150
+        },
+        "properties": {
+          "dataPoint": {
+            "cardKey": {
+              "name": "Total_Pagadores"
+            }
+          }
+        }
+      },
+      {
+        "name": "7g74f61h-hfe1-59ff-1dg2-f4e10d0dc2h78",
+        "type": "card",
+        "position": {
+          "x": 920,
+          "y": 20,
+          "width": 280,
+          "height": 150
+        },
+        "properties": {
+          "dataPoint": {
+            "cardKey": {
+              "name": "Total_Recebedores"
+            }
+          }
+        }
+      },
+      {
+        "name": "8h85g72i-igf2-60gg-2eh3-g5f21e1ed3i89",
+        "type": "barChart",
+        "position": {
+          "x": 20,
+          "y": 190,
+          "width": 900,
+          "height": 350
+        },
+        "properties": {
+          "categoryAxis": {
+            "name": "Estado"
+          },
+          "valueAxis": {
+            "name": "Total_Valor_Transacoes"
+          }
+        }
+      },
+      {
+        "name": "9i96h83j-jgh3-71hh-3fi4-h6g32f2fe4j90",
+        "type": "columnChart",
+        "position": {
+          "x": 940,
+          "y": 190,
+          "width": 960,
+          "height": 350
+        },
+        "properties": {
+          "categoryAxis": {
+            "name": "Regiao"
+          },
+          "valueAxis": [
+            {
+              "name": "Total_PagadorPF"
+            },
+            {
+              "name": "Total_PagadorPJ"
+            }
+          ]
+        }
+      },
+      {
+        "name": "0j07i94k-khi4-82ii-4gj5-i7h43g3gf5k01",
+        "type": "table",
+        "position": {
+          "x": 20,
+          "y": 560,
+          "width": 1880,
+          "height": 500
+        },
+        "properties": {
+          "columns": [
+            {
+              "name": "Municipio"
+            },
+            {
+              "name": "Estado"
+            },
+            {
+              "name": "Total_Valor_Transacoes"
+            },
+            {
+              "name": "Total_Quantidade_Transacoes"
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
