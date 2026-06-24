@@ -10,7 +10,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_QueryOrder = ["districts_ibge","pix_statistics"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
 
 ref table districts_ibge
 ref table DateTableTemplate_9c340752-2d53-4bae-b7f1-7a2019657c15
