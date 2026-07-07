@@ -160,5 +160,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9a6143d92fe6829f96ff",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "pix_statistics"
+              }
+            },
+            "Property": "KPI_Cards_HTML"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
