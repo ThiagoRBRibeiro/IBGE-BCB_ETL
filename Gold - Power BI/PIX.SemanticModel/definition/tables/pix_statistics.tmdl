@@ -2,7 +2,7 @@ table pix_statistics
 	lineageTag: 650a944d-987d-470f-b7cd-e948d339e1bf
 
 	measure Total_Valor_Transacoes = SUM('pix_statistics'[VL_PagadorPF]) + SUM('pix_statistics'[VL_PagadorPJ]) + SUM('pix_statistics'[VL_RecebedorPF]) + SUM('pix_statistics'[VL_RecebedorPJ])
-		formatString: #,##0.00;-#,##0.00
+		formatString: 0.00
 		lineageTag: 00000001-0000-0000-0000-000000000001
 
 	measure Valor_PagadorPF = SUM('pix_statistics'[VL_PagadorPF])
@@ -169,6 +169,103 @@ table pix_statistics
 		formatString: 0.00%
 		displayFolder: Time Intelligence
 		lineageTag: dcea0c9a-2df8-4a0a-b2ef-b33cc44f67d6
+
+	measure KPI_HTML =
+			"
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css'>
+			" &  _html_kpi_content
+		lineageTag: 309b1591-90da-4b65-a652-9392010bc3e7
+
+	/// HTML responsivo para os 6 KPI cards - usar no visual HTML Content
+	measure KPI_Cards_HTML =
+			VAR vValor = [Total_Valor_Transacoes]
+			VAR vQtd   = [Total_Quantidade_Transacoes]
+			VAR vPF    = [Ticket_Medio_PF]
+			VAR vPJ    = [Ticket_Medio_PJ]
+			VAR vPctPF = [Percentual_PF]
+			VAR vMoM   = [Crescimento_MoM]
+			
+			VAR fValor = IF(vValor >= 1E12, FORMAT(vValor/1E12,"R$ #,##0.00") & " Tri",
+			             IF(vValor >= 1E9,  FORMAT(vValor/1E9, "R$ #,##0.00") & " Bi",
+			             FORMAT(vValor/1E6, "R$ #,##0.00") & " Mi"))
+			
+			VAR fQtd   = IF(vQtd >= 1E9,  FORMAT(vQtd/1E9,  "#,##0.00") & " Bi",
+			             IF(vQtd >= 1E6,  FORMAT(vQtd/1E6,  "#,##0.00") & " Mi",
+			             FORMAT(vQtd,     "#,##0")))
+			
+			VAR fPF    = "R$ " & FORMAT(vPF, "#,##0.00")
+			VAR fPJ    = IF(vPJ >= 1000, "R$ " & FORMAT(vPJ/1000,"#,##0.00") & " Mil", "R$ " & FORMAT(vPJ,"#,##0.00"))
+			VAR fPctPF = FORMAT(vPctPF, "0.00%")
+			VAR fMoM   = FORMAT(vMoM, "0.00%")
+			VAR cMoM   = IF(vMoM > 0, "#4ADE80", IF(vMoM < 0, "#FB7185", "#94A3B8"))
+			VAR sMoM   = IF(vMoM > 0, "▲", IF(vMoM < 0, "▼", "—"))
+			
+			RETURN
+			"<style>
+			*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif}
+			html,body{width:100%;height:100%;background:transparent}
+			.g{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:4px;height:100%}
+			.k{background:#1E293B;border-radius:8px;padding:8px 10px;border-top:3px solid var(--c);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+			.k::after{content:'';position:absolute;top:-20px;right:-20px;width:60px;height:60px;background:var(--c);opacity:.05;border-radius:50%}
+			.ic{font-size:16px;margin-bottom:3px}
+			.lb{font-size:8px;color:#475569;text-transform:uppercase;letter-spacing:.06em}
+			.vl{font-size:clamp(13px,1.4vw,20px);font-weight:700;color:#F1F5F9;line-height:1.1;margin:2px 0}
+			.sb{font-size:8px;color:var(--c);opacity:.9}
+			</style>
+			<div class='g'>
+			<div class='k' style='--c:#38BDF8'><div class='ic'>💰</div><div class='lb'>Valor Total</div><div class='vl'>" & fValor & "</div><div class='sb'>Transacionado PIX</div></div>
+			<div class='k' style='--c:#2DD4BF'><div class='ic'>🔁</div><div class='lb'>Transações</div><div class='vl'>" & fQtd & "</div><div class='sb'>Operações</div></div>
+			<div class='k' style='--c:#F59E0B'><div class='ic'>👤</div><div class='lb'>Ticket Médio PF</div><div class='vl'>" & fPF & "</div><div class='sb'>Pessoa Física</div></div>
+			<div class='k' style='--c:#A78BFA'><div class='ic'>🏢</div><div class='lb'>Ticket Médio PJ</div><div class='vl'>" & fPJ & "</div><div class='sb'>Pessoa Jurídica</div></div>
+			<div class='k' style='--c:#4ADE80'><div class='ic'>📊</div><div class='lb'>Share PF</div><div class='vl'>" & fPctPF & "</div><div class='sb'>vs PJ</div></div>
+			<div class='k' style='--c:" & cMoM & "'><div class='ic'>📈</div><div class='lb'>Cresc. MoM</div><div class='vl'>" & sMoM & " " & fMoM & "</div><div class='sb'>Mês anterior</div></div>
+			</div>"
+		displayFolder: HTML Visuals
+		lineageTag: 0dcd1426-9a1f-4c3c-a19b-e63d65584306
+
+	measure Valor_YTD_HTML =
+			VAR v = [Valor_YTD]
+			RETURN IF(v >= 1E12, FORMAT(v/1E12,"R$ #,##0.00") & " Tri", IF(v >= 1E9, FORMAT(v/1E9,"R$ #,##0.00") & " Bi", FORMAT(v/1E6,"R$ #,##0.00") & " Mi"))
+		displayFolder: HTML Visuals
+		lineageTag: 1bfbb553-b1ac-47ea-a461-ab4ad39a93ac
+
+	measure Qtd_YTD_HTML =
+			VAR v = [Qtd_YTD]
+			RETURN IF(v >= 1E9, FORMAT(v/1E9,"#,##0.00") & " Bi", IF(v >= 1E6, FORMAT(v/1E6,"#,##0.00") & " Mi", FORMAT(v,"#,##0")))
+		displayFolder: HTML Visuals
+		lineageTag: ac239659-4720-4062-bf2e-5295f1c2372d
+
+	measure Ticket_Medio_Geral = DIVIDE([Total_Valor_Transacoes], [Total_Quantidade_Transacoes], 0)
+		formatString: R$ #,##0.00
+		displayFolder: KPIs
+		lineageTag: 455b0d5a-3fe0-4ea9-a8c4-243d5fdf7a90
+
+	measure Crescimento_YoY_Valor =
+			VAR mesAtual = MAX('pix_statistics'[Mes])
+			VAR anoAtual = MAX('pix_statistics'[Ano])
+			VAR anoAnt = anoAtual - 1
+			VAR vAtual = CALCULATE([Total_Valor_Transacoes], 'pix_statistics'[Ano] = anoAtual, 'pix_statistics'[Mes] = mesAtual)
+			VAR vAnt   = CALCULATE([Total_Valor_Transacoes], 'pix_statistics'[Ano] = anoAnt,   'pix_statistics'[Mes] = mesAtual)
+			RETURN DIVIDE(vAtual - vAnt, vAnt, 0)
+		formatString: 0.00%
+		displayFolder: Time Intelligence
+		lineageTag: bc2764ca-918a-463e-9075-ad2334208f21
+
+	measure Crescimento_YoY_Qtd =
+			VAR mesAtual = MAX('pix_statistics'[Mes])
+			VAR anoAtual = MAX('pix_statistics'[Ano])
+			VAR anoAnt = anoAtual - 1
+			VAR vAtual = CALCULATE([Total_Quantidade_Transacoes], 'pix_statistics'[Ano] = anoAtual, 'pix_statistics'[Mes] = mesAtual)
+			VAR vAnt   = CALCULATE([Total_Quantidade_Transacoes], 'pix_statistics'[Ano] = anoAnt,   'pix_statistics'[Mes] = mesAtual)
+			RETURN DIVIDE(vAtual - vAnt, vAnt, 0)
+		formatString: 0.00%
+		displayFolder: Time Intelligence
+		lineageTag: 5c280f87-67bb-48c2-84be-cfe9aa99f1fe
+
+	measure Valor_Acumulado_12M = CALCULATE([Total_Valor_Transacoes], FILTER(ALL('pix_statistics'[AnoMes]), 'pix_statistics'[AnoMes] <= MAX('pix_statistics'[AnoMes]) && 'pix_statistics'[AnoMes] > MAX('pix_statistics'[AnoMes]) - 100))
+		formatString: R$ #,##0
+		displayFolder: Time Intelligence
+		lineageTag: cd6e7a5c-5395-4dd1-bcb9-48532d7fa157
 
 	column AnoMes
 		dataType: int64

@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["districts_ibge","pix_statistics"]
+annotation PBI_QueryOrder = ["districts_ibge","pix_statistics","_html_kpi_content"]
 
 annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
 
@@ -21,6 +21,7 @@ ref table pix_statistics
 ref table LocalDateTable_eacc7beb-3637-4b51-91b4-f5740ff93d46
 ref table LocalDateTable_b5fcbce0-94ac-41ab-855f-f81e9a9aa802
 ref table LocalDateTable_e1c96101-f526-4769-b043-0204b48e207b
+ref table _html_kpi_content
 
 ref cultureInfo pt-BR
 

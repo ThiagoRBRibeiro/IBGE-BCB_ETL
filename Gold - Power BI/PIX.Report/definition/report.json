@@ -9,6 +9,15 @@
         "page": "2.3.1"
       },
       "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "PIX_Dark_Theme2475602804413981.json",
+      "reportVersionAtImport": {
+        "visual": "2.10.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
     }
   },
   "objects": {
@@ -31,7 +40,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "true"
+                "Value": "false"
               }
             }
           }
@@ -39,6 +48,9 @@
       }
     ]
   },
+  "publicCustomVisuals": [
+    "htmlContent443BE3AD55E043BF878BED274D3A6855"
+  ],
   "resourcePackages": [
     {
       "name": "SharedResources",
@@ -48,6 +60,32 @@
           "name": "Fluent2-CY26SU05",
           "path": "BaseThemes/Fluent2-CY26SU05.json",
           "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "bg_analise_geografica6296928958153346.svg",
+          "path": "bg_analise_geografica6296928958153346.svg",
+          "type": "Image"
+        },
+        {
+          "name": "bg_analise_temporal_15930063309763729.svg",
+          "path": "bg_analise_temporal_15930063309763729.svg",
+          "type": "Image"
+        },
+        {
+          "name": "bg_visao_geral_v6_16561641175994225.svg",
+          "path": "bg_visao_geral_v6_16561641175994225.svg",
+          "type": "Image"
+        },
+        {
+          "name": "PIX_Dark_Theme2475602804413981.json",
+          "path": "PIX_Dark_Theme2475602804413981.json",
+          "type": "CustomTheme"
         }
       ]
     }

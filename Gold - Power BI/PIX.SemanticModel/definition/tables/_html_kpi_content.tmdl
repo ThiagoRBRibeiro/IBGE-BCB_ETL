@@ -1,0 +1,23 @@
+table _html_kpi_content
+	lineageTag: de548e14-417e-4d02-8016-738a9bd3504d
+
+	column _html_kpi_content
+		dataType: string
+		lineageTag: 2e1a36c6-9fe7-401a-ba62-3e6802720920
+		summarizeBy: none
+		sourceColumn: _html_kpi_content
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _html_kpi_content = m
+		mode: import
+		source =
+				let
+				    Fonte = Text.FromBinary(File.Contents("C:\Users\Thiago\Downloads\PIX_Design_Assets\pix_design\kpi_cards.html"))
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Text
+
